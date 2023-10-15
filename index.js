@@ -15,12 +15,6 @@ const turnText = document.getElementById("turn-text");
 playAgain.addEventListener("click", startNewGame);
 
 
-/*
-//Sounds
-const gameOverSound = new Audio('sounds/game_over.wav');
-const click = new Audio('sounds/click.wav');
-*/
-
 function setHoverText() {
     tiles.forEach((tile) => {
         tile.classList.remove("x-hover");
@@ -59,15 +53,13 @@ function tileClick(event) {
         boardState[tileNumber - 1] = playerO;
         turn = playerX;  
     }
-   /* clickSound.play(); */
-
    setHoverText();
    checkWinner();
 }
 
 function checkWinner() {
     for (const winningCombination of winningCombinations) {
-    //Object Destructuring
+    
     const { combo, strikeClass} = winningCombination;
     const tileValue1 = boardState[combo[0] - 1];
     const tileValue2 = boardState[combo[1] - 1];
@@ -94,7 +86,6 @@ function gameOverScreen(winnerText) {
     }
     gameOverArea.className = "visible";
     gameOverText.innerText = text;
-    /* gameOverSound.play();  */ 
 }
 
 function startNewGame() {
